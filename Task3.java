@@ -1,10 +1,22 @@
+import java.io.IOException;
 import java.util.Scanner;
+import java.util.logging.*; 
 
 // Реализовать простой калькулятор (пользователь вводит 2 числа и вводит операцию (+ - / *). 
 // int a ; int b; String op (op!=”Stop”); (char != ’b’)
 
 public class Task3 {
-   public static void main(String[] args) {
+   public static void main(String[] args) throws IOException {
+      Logger logger = Logger.getLogger(Task3.class.getName());
+      FileHandler fh = new FileHandler("log.txt");
+      logger.addHandler(fh);
+      
+      SimpleFormatter sFormat = new SimpleFormatter();
+      fh.setFormatter(sFormat);
+      
+      logger.log(Level.WARNING, "Тестовое логирование 1");
+      logger.info("Тестовое логирование 2");
+{
       int num1;
       int num2;
       int ans;
@@ -32,4 +44,4 @@ public class Task3 {
       System.out.printf(num1 + " " + oper + " " + num2 + " = " + ans);
    }
 }
-
+}
